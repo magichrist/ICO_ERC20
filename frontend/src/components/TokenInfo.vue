@@ -23,12 +23,15 @@
            class="text-green-400 hover:text-green-300 font-bold transition-colors"
         >{{ CONTRACT_ADDRESS }}</a>
       </div>
+      <div class="flex justify-between">
+        <span class="font-semibold">Chain:</span>Hoodi
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import {computed} from "vue";
+import {computed, ref} from "vue";
 import {CONTRACT_ADDRESS} from "../utils/web3.js";
 
 const Contract_Link = `https://hoodi.etherscan.io/address/${CONTRACT_ADDRESS}`;
@@ -41,19 +44,26 @@ const props = defineProps({
   totalPhases: Number
 });
 
+
 // unlockedAmount auto-updates with props
 const unlockedAmount = computed(() => {
   if (props.totalPhases == 0) {
     return props.totalSupply
   }
-  return props.totalSupply * 4 / 10 * Math.abs(props.totalPhases - 9) / 10;
+  const currentPhase = ref(1);
+  const INITIAL_PHASES = 10;
+  const remaining = Number(props.totalPhases);
+  const phasesCompleted = Math.max(0, INITIAL_PHASES - remaining);
+  currentPhase.value = Math.min(
+      Math.max(1, phasesCompleted + 1),
+      INITIAL_PHASES
+  );
+  return ((props.totalSupply * 4) / 10) * currentPhase.value / 10;
 });
 
 // formatted display
 const formattedTotalSupply = computed(() => props.totalSupply.toLocaleString());
 const formattedCurrentPrice = computed(() => props.price.toFixed(6));
-const formattedUnlockedAmount = computed(() =>
-    unlockedAmount.value.toLocaleString()
-);
+const formattedUnlockedAmount = computed(() => unlockedAmount.value.toLocaleString());
 </script>
 
