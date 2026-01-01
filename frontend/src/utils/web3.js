@@ -1,6 +1,6 @@
 import {BrowserProvider, Contract, parseEther} from "ethers";
 // abi is in ./ERC20.json
-export const CONTRACT_ADDRESS = "0x469C384518435Bf233a362f9CF7A14e82cbc281C";
+export const CONTRACT_ADDRESS = "0x93cf465FDb1851E23638792E2ED3CadBC8b4505F";
 export const ABI = [
     // ERC20 basics
     "function name() view returns (string)",
