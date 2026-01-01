@@ -8,3 +8,6 @@
 ./ICO_Token/foundry.lock
 ./frontend/package-lock.json
 .DS_Store
+/ICO_Token/lib/
+/frontend/.vscode/
+!/frontend/.vscode/
