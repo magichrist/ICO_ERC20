@@ -7,4 +7,4 @@
 ./ICO_Token/.DS_Store
 ./ICO_Token/foundry.lock
 ./frontend/package-lock.json
-
+.DS_Store
