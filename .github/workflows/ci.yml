@@ -15,3 +15,6 @@ jobs:
 
       - name: Run command
         run: echo "CI is working"
+
+      - name: Build Frontend
+        run: cd frontend && nmp run build
