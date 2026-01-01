@@ -24,3 +24,5 @@ docs/
 ./lib
 lib
 /lib
+
+.DS_Store
