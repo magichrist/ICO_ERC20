@@ -19,3 +19,8 @@ docs/
 ./.env
 
 ./lib
+
+./lib/*
+./lib
+lib
+/lib
