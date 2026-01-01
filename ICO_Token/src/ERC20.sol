@@ -125,7 +125,7 @@ contract ERC20 {
     function Doubling() external OnlyOwner { // must be triggered once a week by developer.
         require(totalPhases >= 1); // ico has 10 phases (2.5 months) and after that cannot buy from contract.
         uint one_week_unix_time = 604_800;
-        StoredTime += one_week_unix_time;
+        StoredTime = block.timestamp+one_week_unix_time;
         Price *= 2;
         totalPhases -= 1;
         if (totalPhases!=0){
