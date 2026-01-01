@@ -1,3 +1,10 @@
 ./ICO_Token/.env
 /ICO_Token/.env
 
+.idea
+./ICO_Token/lib/*
+./ICO_Token/lib
+./ICO_Token/.DS_Store
+./ICO_Token/foundry.lock
+./frontend/package-lock.json
+
