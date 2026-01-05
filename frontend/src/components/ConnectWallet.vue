@@ -12,7 +12,7 @@
   >
     <span v-if="connecting">Connecting...</span>
     <span v-else-if="connected">{{ short(account) }}</span>
-    <span v-else>Connect Wallet</span>
+    <span v-else>Connect</span>
   </button>
 </template>
 
