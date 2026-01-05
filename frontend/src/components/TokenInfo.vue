@@ -17,14 +17,20 @@
         <span class="font-semibold">Unlocked Amount:</span>
         <span>{{ formattedUnlockedAmount }} Tokens</span>
       </div>
-      <div class="w-100">
-        <span class="font-semibold">Contract Address:</span>
-        <a :href="Contract_Link" target="_blank" v-on:click=""
-           class="text-green-400 hover:text-green-300 font-bold transition-colors"
-        ><br>{{ CONTRACT_ADDRESS.slice(0,20) }}...
+      <div class="max-w-full break-all">
+        <span class="font-semibold block mb-1">Contract Address:</span>
+
+        <a
+            :href="Contract_Link"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-green-400 hover:text-green-300 transition-colors block break-all"
+        >
+          {{ CONTRACT_ADDRESS }}
         </a>
-        <button v-on:click="copyFunction('Copied')" id="copyButton">Copy</button>
+
       </div>
+
       <div class="flex justify-between">
         <span class="font-semibold">Chain:</span>Hoodi
       </div>
@@ -67,13 +73,5 @@ const unlockedAmount = computed(() => {
 const formattedTotalSupply = computed(() => props.totalSupply.toLocaleString());
 const formattedCurrentPrice = computed(() => props.price.toFixed(6));
 const formattedUnlockedAmount = computed(() => unlockedAmount.value.toLocaleString());
-const copyFunction = () => {
-  navigator.clipboard.writeText(CONTRACT_ADDRESS);
-  let button=document.getElementById("copyButton");
-  button.innerText="Copied";
-  setTimeout(()=>{
-    button.innerText="Copy";
-  },1500);
-}
 </script>
 

@@ -8,11 +8,15 @@
   ]"
   >
     <!-- Thread -->
-    <div class="thread w-[2px] bg-gray-300"></div>
+    <div class="thread w-[2px] h-16 sm:h-24 bg-gray-300"></div>
 
     <!-- Postcard -->
     <div
-        class="postcard bg-gray-800 text-green-300 font-bold px-6 py-4 rounded-xl shadow-xl"
+        class="postcard bg-gray-800 text-green-300 font-bold
+           px-4 py-3 sm:px-6 sm:py-4
+           rounded-xl shadow-xl
+           text-sm sm:text-base
+           max-w-[90vw] text-center break-words"
         :class="pullingUp ? 'postcard-stop-swing' : ''"
     >
       ABRADACABRA BITCH!
@@ -21,7 +25,12 @@
 
 
   <header
-      class="relative bg-gradient-to-b from-gray-900/80 to-gray-800/80 backdrop-blur-xl rounded-b-3xl shadow-[0_0_30px_rgba(0,255,120,0.2)] px-6 py-6 flex justify-between items-center">
+      class="relative bg-gradient-to-b from-gray-900/80 to-gray-800/80 backdrop-blur-xl
+         rounded-b-3xl shadow-[0_0_30px_rgba(0,255,120,0.2)]
+         px-4 sm:px-6
+         pt-12 sm:pt-6 pb-4
+         flex items-center justify-between gap-2"
+  >
 
     <!-- iPhone-style central notch -->
     <div class="notch absolute top-3 left-1/2 -translate-x-1/2 flex items-center justify-center space-x-2 px-4">
@@ -46,19 +55,20 @@
     </div>
 
     <!-- Title -->
-    <h1 class="text-2xl font-bold text-green-400 drop-shadow-[0_0_12px_rgba(16,185,129,0.8)] z-10">
+    <h1 class="text-xl font-bold text-green-400 drop-shadow-[0_0_12px_rgba(16,185,129,0.8)] z-10">
       SHXT Token
     </h1>
 
     <!-- Right side slot -->
     <div class="flex items-center space-x-2 z-10">
-      <slot></slot>
+      <ConnectWallet></ConnectWallet>
     </div>
 
   </header>
 </template>
 
 <script setup>
+import ConnectWallet from "./ConnectWallet.vue";
 defineProps({
   state: {type: Boolean, required: true}
 });
@@ -255,8 +265,8 @@ onMounted(() => {
 /* iPhone-style large notch */
 .notch {
   background-color: #0a0a0a;
-  width: 20%; /* notch wide enough for text + dot */
-  height: 48px; /* enough for dot + text */
+  width: 30%; /* notch wide enough for text + dot */
+  height: 45px; /* enough for dot + text */
   border-radius: 24px 24px 16px 16px; /* smooth rounded corners */
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   z-index: 20;
