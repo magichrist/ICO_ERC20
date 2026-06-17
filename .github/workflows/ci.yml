@@ -1,9 +1,9 @@
 name: CI
 
+
 on:
   push:
     branches: [ main ]
-  pull_request:
 
 jobs:
   build:
@@ -17,4 +17,4 @@ jobs:
         run: echo "CI is working"
 
       - name: Build Frontend
-        run: cd frontend && nmp run build
+        run: cd frontend && npm run build
