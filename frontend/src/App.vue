@@ -124,7 +124,7 @@ const totalPhases = ref(0);
 const storedTime = ref(0);
 const state = ref(false);
 const owner = ref("");
-const decimals = ref(6)
+const decimals = ref(6);
 
 // Connect wallet
 async function connectWallet() {
